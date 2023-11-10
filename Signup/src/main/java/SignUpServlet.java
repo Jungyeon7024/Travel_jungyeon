@@ -29,7 +29,7 @@ public class SignUpServlet extends HttpServlet {
 			Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
 		
 			
-			   int mno = Integer.parseInt(request.getParameter("mno"));
+			   int phn = Integer.parseInt(request.getParameter("phn"));
 	            String mname = request.getParameter("mname");
 	            String memail = request.getParameter("memail");
 	            String mbirth = request.getParameter("mbirth");
@@ -39,9 +39,9 @@ public class SignUpServlet extends HttpServlet {
 	            
 			
 			
-	            String sql = "INSERT INTO MemberInfo (MNO, MName, MEmail, MBirth, Mid,password,gender) VALUES (?,?,?,?, ?, ?, ?)";
+	            String sql = "INSERT INTO Userinfo (phn, MName, MEmail, MBirth, Mid,password,gender) VALUES (?,?,?,?, ?, ?, ?)";
 	            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-	            preparedStatement.setInt(1, mno);
+	            preparedStatement.setInt(1, phn);
 	            preparedStatement.setString(2, mname);
 	            preparedStatement.setString(3, memail);
 	            preparedStatement.setDate(4, java.sql.Date.valueOf(mbirth));
@@ -54,7 +54,7 @@ public class SignUpServlet extends HttpServlet {
 	            preparedStatement.executeUpdate();
 			
 		
-	            request.getSession().setAttribute("mno", mno);
+	            request.getSession().setAttribute("phn", phn);
 	            request.getSession().setAttribute("mname", mname);
 	            request.getSession().setAttribute("memail", memail);
 	            request.getSession().setAttribute("mbirth", mbirth);

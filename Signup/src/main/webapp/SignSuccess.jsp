@@ -10,7 +10,7 @@
 <body>
 <h1>회원가입에 성공!</h1>
 <h2>회원가입 정보 : </h2>
-<p>회원번호 : <%= session.getAttribute("mno") %> </p>
+<p> 전화번호 : <%= session.getAttribute("phn") %> </p>
 <p> 이름 :<%= session.getAttribute("mname") %> </p>
 <p> 이메일 :<%=session.getAttribute("memail") %> </p>
 
