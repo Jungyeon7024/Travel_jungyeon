@@ -1,58 +1,64 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+
+
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 
 <head>
 <meta charset="UTF-8">
 
-<title>È¸¿ø°¡ÀÔ</title>
+<title>íšŒì›ê°€ì…</title>
 
 </head>
 <body>
-<h1>È¸¿ø°¡ÀÔ</h1>
-<form action="SignUpServlet" method="post" id = "joinform">
+<h1>íšŒì›ê°€ì…</h1>
+<form action="SignUpServlet" method="post" >
 
 		
 		
 
-		<label for = "mname" >ÀÌ¸§ : <em> * </em> </label>
+		<label for = "mname" >ì´ë¦„ : <em> * </em> </label>
 		<input type = "text" id ="mname" name="mname" required><br>
 				
-		<label for = "mid">¾ÆÀÌµğ : <em> * </em> </label>
+		<label for = "mid">ì•„ì´ë”” : <em> * </em> </label>
 		<input type = "text" id = "mid" name = "mid" required><br>
 		
-		<label for = "password">ºñ¹Ğ¹øÈ£ :<em> * </em> </label>
+		<label for = "password">ë¹„ë°€ë²ˆí˜¸ :<em> * </em> </label>
 		<input type = "password" id = "password" name = "password" required><br>
 		
 							
-		<label for = "phn"> ÀüÈ­¹øÈ£ : <em> * </em> </label>
+		<label for = "phn"> ì „í™”ë²ˆí˜¸ : <em> * </em> </label>
 		<input type = "number" id = "phn" name = "phn" required><br>
 		
 		
-		<label for = "mbirth">»ı³â¿ùÀÏ : </label>
+		<label for = "mbirth">ìƒë…„ì›”ì¼ : </label>
 		<input type = "date" id = "mbirth" name = "mbirth" ><br>
 		
 		
-		<label for = "memail">ÀÌ¸ŞÀÏ : </label>
+		<label for = "memail">ì´ë©”ì¼ : </label>
 		<input type = "email" id = "memail" name = "memail" ><br>
 		
 						
 		<p>
-		<label for = "gender">¼ºº° : </label>
+		<label for = "gender">ì„±ë³„ : </label>
 	
 		 
-              <input type="radio" name="gender" value="man">³²
-              <input type="radio" name="gender" value="woman">¿©
+              <input type="radio" name="gender" value="man">ë‚¨
+              <input type="radio" name="gender" value="woman">ì—¬
            
 		
 		</p>
-		  <button  type="button" onclick="Validation()">È¸¿ø °¡ÀÔ</button>
-            <input type="reset" onclick="alert('ÃÊ±âÈ­ Çß½À´Ï´Ù.')" value="´Ù½Ã ÀÔ·Â">
-</form> 
+		  	<button  type="submit" onclick="Validation()"> íšŒì› ê°€ì…</button>
+            <input type="reset" onclick="alert('ì´ˆê¸°í™” í–ˆìŠµë‹ˆë‹¤.')" value="ë‹¤ì‹œ ì…ë ¥">
 <script>
 function Validation()	{
 		
+	 
+	
+	
 		var password = document.getElementById("password")
 		var mid = document.getElementById("mid")
 		var mname = document.getElementById("mname")
@@ -64,7 +70,7 @@ function Validation()	{
 		 var regPassword = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{10,12}$/;
 	
 		 if(mname.value == ""){
-	            alert("ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä.")
+	            alert("ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”.")
 	            mname.focus();
 	            
 	            return false;
@@ -74,7 +80,7 @@ function Validation()	{
 		 
 		 
 		 if(mid.value == ""){
-	            alert("¾ÆÀÌµğ¸¦ ÀÔ·ÂÇÏ¼¼¿ä.")
+	            alert("ì•„ì´ë””ë¥¼ ì…ë ¥í•˜ì„¸ìš”.")
 	            mid.focus();
 	            
 	            return false;
@@ -83,35 +89,34 @@ function Validation()	{
 		 		 	 		 
 		 		 
 		 if(password.value == ""){
-	            alert("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.")
+	            alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.")
 	            password.focus();
 	            
 	            return false;
 	        }
 	        
 	        else if(!regPassword.test(password.value)){
-	            alert("10~12ÀÚ ¿µ¹® ´ë¼Ò¹®ÀÚ, ¼ıÀÚ, Æ¯¼ö¹®ÀÚ¸¦ ÀÌ¿ëÇØ ÀÔ·ÂÇÏ¼¼¿ä.")
+	            alert("10~12ì ì˜ë¬¸ ëŒ€ì†Œë¬¸ì, ìˆ«ì, íŠ¹ìˆ˜ë¬¸ìë¥¼ ì´ìš©í•´ ì…ë ¥í•˜ì„¸ìš”.")
 	            password.focus();
 	        
 	            return false;
 	        }
 	        else if(password.value == mid.value){
-	            alert("¾ÆÀÌµğ¿Í µ¿ÀÏÇÑ ºñ¹Ğ¹øÈ£¸¦ »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù.")
+	            alert("ì•„ì´ë””ì™€ ë™ì¼í•œ ë¹„ë°€ë²ˆí˜¸ë¥¼ ì‚¬ìš©í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.")
 	            password.focus();
 	            return false;
 	        }
 		 
 		 
 		 if(phn.value == ""){
-	            alert("ÀüÈ­¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.")
+	            alert("ì „í™”ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.")
 	            phn.focus();
 	            
 	            return false;
 	        }
+		 return true; //
+		// document.signUpForm.submit();
 		 
-		
-		 document.joinForm.submit();
-	       
 }
 
 
@@ -121,6 +126,11 @@ function Validation()	{
 
 
 </script>
+
+
+
+</form> 
+
 
 
 
