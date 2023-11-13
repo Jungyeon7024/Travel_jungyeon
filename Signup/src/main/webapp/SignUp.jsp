@@ -8,39 +8,71 @@
 <html>
 
 <head>
+<link rel="stylesheet" type="text/css" href="StyleSH.css">
 <meta charset="UTF-8">
 
 <title>회원가입</title>
 
 </head>
-<body>
-<h1>회원가입</h1>
+
+
+    
 <form action="SignUpServlet" method="post" >
-
-		
-		
-
+   
+<body>
+<section>
+ <h1>회원가입</h1>
+        
+        
+        
+        <div>
 		<label for = "mname" >이름 : <em> * </em> </label>
-		<input type = "text" id ="mname" name="mname" required><br>
-				
+		<input type = "text" id ="mname" name="mname" required>
+	
+        
+        </div>
+        
+        
+       	
+
+    <div>
 		<label for = "mid">아이디 : <em> * </em> </label>
-		<input type = "text" id = "mid" name = "mid" required><br>
+		<input type = "text" id = "mid" name = "mid" required>
 		
+		
+    </div>
+         
+         
+         <div>
 		<label for = "password">비밀번호 :<em> * </em> </label>
-		<input type = "password" id = "password" name = "password" required><br>
-		
-							
-		<label for = "phn"> 전화번호 : <em> * </em> </label>
+	    <input type = "password" id = "password" name = "password" required>
+    </div>
+        <div>			
+		<label for = "phn"> 전화번호 : <em> * </em> </label> 
 		<input type = "number" id = "phn" name = "phn" required><br>
-		
-		
+    </div>
+
+        <div>
+            <label for = "memail">이메일 : </label><br>
+            <input type = "email" id = "memail" name = "memail" ><br>
+        </div>
+
+
+
+        <br>
+        
+
+
+
+
+        <p>
 		<label for = "mbirth">생년월일 : </label>
-		<input type = "date" id = "mbirth" name = "mbirth" ><br>
+		<input type = "date" id = "mbirth" name = "mbirth" >
+        </p>
 		
+        
 		
-		<label for = "memail">이메일 : </label>
-		<input type = "email" id = "memail" name = "memail" ><br>
-		
+        
 						
 		<p>
 		<label for = "gender">성별 : </label>
@@ -49,11 +81,27 @@
               <input type="radio" name="gender" value="man">남
               <input type="radio" name="gender" value="woman">여
            
-		
-		</p>
-		  	<button  type="submit" onclick="Validation()"> 회원 가입</button>
-            <input type="reset" onclick="alert('초기화 했습니다.')" value="다시 입력">
+            </p>
+		  	
+        
+           
+        
+            <o>
+            <button  type="submit" onclick="Validation()"> 회원 가입</button>
+            <button type="reset" onclick="alert('초기화 했습니다.')">다시 입력</button>
+        	</o>
+       </section>     
+
+</body>	
+
+
+
+
+     
+            
 <script>
+
+
 function Validation()	{
 		
 	 
@@ -63,9 +111,9 @@ function Validation()	{
 		var mid = document.getElementById("mid")
 		var mname = document.getElementById("mname")
 		var phn = document.getElementById("phn")
-		
+		var mbirth = document.getElementById("mbirth")
 		 
-		 
+		 var regphn = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/
 		 
 		 var regPassword = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{10,12}$/;
 	
@@ -86,7 +134,7 @@ function Validation()	{
 	            return false;
 	        }
 		
-		 		 	 		 
+			 
 		 		 
 		 if(password.value == ""){
 	            alert("비밀번호를 입력하세요.")
@@ -108,14 +156,29 @@ function Validation()	{
 	        }
 		 
 		 
+		
+		 
 		 if(phn.value == ""){
 	            alert("전화번호를 입력하세요.")
 	            phn.focus();
 	            
 	            return false;
 	        }
+		 
+		 if(mbirth.value == ""){
+	            alert("생년월일을 입력하세요")
+	            mbirth.focus();
+	            
+	            return false;
+	        }
+		
+		 
+		 
 		 return true; //
 		// document.signUpForm.submit();
+		 
+		 
+		 
 		 
 }
 
@@ -129,13 +192,13 @@ function Validation()	{
 
 
 
-</form> 
+</form>
 
 
 
 
 
-</body>
+
 
 
 

@@ -3,6 +3,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -39,7 +40,7 @@ public class SignUpServlet extends HttpServlet {
 	            
 			
 			
-	            String sql = "INSERT INTO Userinfo (phn, MName, MEmail, MBirth, Mid,password,gender) VALUES (?,?,?,?, ?, ?, ?)";
+	            String sql = "INSERT INTO memberinfo (phn, MName, MEmail, MBirth, Mid,password,gender) VALUES (?,?,?,?, ?, ?, ?)";
 	            PreparedStatement preparedStatement = connection.prepareStatement(sql);
 	            preparedStatement.setInt(1, phn);
 	            preparedStatement.setString(2, mname);
@@ -65,8 +66,12 @@ public class SignUpServlet extends HttpServlet {
 		
 			response.sendRedirect("SignSuccess.jsp");
 			
+		} catch (SQLIntegrityConstraintViolationException e) {
+			response.sendRedirect("errorId.jsp");
+			
+			e.printStackTrace();
 		} catch (SQLException e) {
-		
+			// TODO Auto-generated catch block
 			response.sendRedirect("SignFail.jsp");
 			e.printStackTrace();
 		}
